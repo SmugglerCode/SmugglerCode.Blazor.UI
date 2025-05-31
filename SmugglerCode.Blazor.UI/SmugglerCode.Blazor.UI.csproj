@@ -8,7 +8,8 @@
 	<Company>SmugglerCode</Company>
 	<Description>A reusable Blazor UI component library.</Description>
 	<PackageTags>blazor;ui;components;codeshepherd</PackageTags>
-	<RepositoryUrl>https://github.com/YourGitHub/YourRepo</RepositoryUrl>
+	<RepositoryUrl>https://github.com/SmugglerCode/SmugglerCode.Blazor.UI</RepositoryUrl>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
