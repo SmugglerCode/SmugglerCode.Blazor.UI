@@ -10,6 +10,7 @@
 	<PackageTags>blazor;ui;components;codeshepherd</PackageTags>
 	<RepositoryUrl>https://github.com/SmugglerCode/SmugglerCode.Blazor.UI</RepositoryUrl>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageReadmeFile>../README.md</PackageReadmeFile>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
