@@ -1,0 +1,41 @@
+﻿.drop-down-container {
+    height: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.4rem;
+    border: solid 1px steelblue;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    background: white;
+}
+
+.drop-down-label {
+    grid-column: 1;
+}
+
+.drop-down-icon {
+    grid-column: 2;
+    font-size: 0.6rem;
+    padding-top:0.2rem;
+}
+
+.drop-down-content {
+    position: relative;
+    width: 100%;
+}
+
+.drop-down-item {
+    padding: 0.2rem 0.4rem;
+}
+
+.drop-down-item:hover {
+    background-color:lightgrey;
+}
+
+.drop-down-window {
+    position: absolute;
+    background-color: white;
+    border: solid 1px steelblue;
+    width: 100%;
+    z-index: 1000;
+}

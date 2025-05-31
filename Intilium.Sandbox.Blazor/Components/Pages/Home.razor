@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<div class="content">
+
+    <div class="grid-auto-1fr" role="grid">
+        <Calendar></Calendar>
+
+        <div role="gridcell">
+        <IntiDataGrid Items="Tasks" TItem="WorkTask">
+            <IntiDataGridColumn TItem="Task" 
+                                                                            Title="Creatie datum" 
+                                                                            Property="CreationDate" />
+            <IntiDataGridColumn TItem="Task" 
+                                                                            Title="Is afgewerkt" 
+                                                                            Property="IsCompleted" 
+                                                                            CellType="@DataGridCellType.CheckBox"
+                                                                            Width="auto"/>
+                <IntiDataGridColumn TItem="Task"
+                                                                                Title="Titel"
+                                                                                Property="Title"
+                                                                                Width="1fr" />
+        </IntiDataGrid>
+        </div>
+    </div>
+</div>

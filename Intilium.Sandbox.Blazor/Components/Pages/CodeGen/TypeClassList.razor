@@ -1,0 +1,9 @@
+﻿<div class="grid-1fr-auto">
+    <IntiTextBox @bind-Text="SearchText" TValue="string"></IntiTextBox>
+    <IntiButton Label="Search" OnClick="@FilterList"></IntiButton>
+</div>
+
+@foreach (var tc in _filteredTypeClasses)
+{ 
+    <div class="inti-list-item">@tc.Name</div>    
+}

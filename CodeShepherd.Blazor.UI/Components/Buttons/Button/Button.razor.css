@@ -1,0 +1,20 @@
+﻿.cs-button {
+    background-color: #de4981;
+    color: white;
+    padding: .5rem;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: inline-block;
+    min-width: 8rem;
+    text-align: center;
+    font-size: 1rem;
+    height: 2.5rem;
+}
+
+.cs-button-alert {
+    background-color: red;
+}
+
+.cs_button-primary {
+    background-color: steelblue;
+}

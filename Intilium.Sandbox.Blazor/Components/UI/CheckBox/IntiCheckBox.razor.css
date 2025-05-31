@@ -1,0 +1,23 @@
+﻿.check-box-icon {
+    font-size: 2em;
+    color: #333;
+}
+
+.checkbox-container {
+    display: inline-block;
+}
+
+.inner-checkbox-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    box-sizing: border-box;
+}
+
+/* Label */
+.checkbox-container > .inner-checkbox-container > .checkbox-label {
+    font-size: 1em;
+    color: #333;
+    padding-left: 0.5em;
+    padding-top: 0.3rem;
+}
+

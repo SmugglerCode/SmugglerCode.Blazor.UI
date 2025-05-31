@@ -1,0 +1,122 @@
+﻿@rendermode InteractiveServer
+@page "/Diagram"
+
+@using Intilium.Sandbox.Blazor.Components.UI.DiagramCanvas
+@using Intilium.Sandbox.Blazor.Database.Doc.Entities
+
+<IntiPopup IsVisible="_showMessage" Label="Waarschuwing">
+    <div style="font-size:1rem">@_message</div>
+</IntiPopup>
+
+<div class="content">
+    <h1>Type Class.</h1>
+    <div class="h1-seperator"></div>
+
+    <div class="grid-1fr-1fr">
+
+        <div>
+
+            <!--  NAME OF THE TYPE  -->
+            <InputGroup Label="Naam van het type.">
+                <IntiTextBox TValue="string"
+                             @bind-Text="@CurrentTypeClass.Name">
+                </IntiTextBox>
+            </InputGroup>
+
+            <!--  NAMESPACE FOR THE TYPE  -->
+            <InputGroup Label="Namespace van het type.">
+                <IntiTextBox TValue="string"
+                             @bind-Text="@CurrentTypeClass.Namespace"></IntiTextBox>
+            </InputGroup>
+ 
+            <InputGroup>
+                <IntiCheckBox @bind-IsChecked="@CurrentTypeClass.IsPrimitive" Label="Het type is een primitieve klasse." />
+            </InputGroup>
+
+            <!--  TYPE DESCRIPTION  -->
+            <InputGroup Label="Beschrijving van het type.">
+                <IntiTextBox TValue="string"
+                             @bind-Text="@CurrentTypeClass.Description">
+                </IntiTextBox>
+            </InputGroup>
+
+            <!--  PROPERTY NAME  -->
+            <InputGroup Label="@($"Property naam. {_selectedProperty.Id}")">
+                <div style="display: flex; gap: 0.5rem">
+                    <IntiTextBox
+                    TValue="string"
+                    OnEnter="AddProperty"
+                    @bind-Text="PropertyExpression">
+                    </IntiTextBox>
+                </div>
+            </InputGroup>
+
+            <!--  DESCRIPTION OF THE PROPERTY  -->
+            <InputGroup Label="Beschrijving voor het property.">
+                <IntiTextBox TValue="string" OnEnter="AddProperty" @bind-Text="_selectedProperty.Description"></IntiTextBox>
+            </InputGroup>
+
+            <!--  METHODS  -->
+            <InputGroup Label="Methode gegevens.">
+                <div style="display:flex;gap:0.5rem">
+                    <IntiTextBox TValue="string"
+                                 @bind-Text="@MethodExpression"></IntiTextBox>
+                    <IntiButton OnClick="@AddMethod" Label="+"></IntiButton>
+                </div>
+            </InputGroup>
+
+            <div class="inti-button-group">
+                <IntiButton Label="Annuleren" OnClick="Cancel" Type="@ButtonType.Alert"></IntiButton>
+                <IntiButton Label="Opslaan" OnClick="AddTypeClass"></IntiButton>
+                <IntiButton Label="Test snackbar" OnClick="ShowSnackbar"></IntiButton>
+            </div>
+        </div>
+
+        <div>
+            <TypeClassDocView TypeClass="@CurrentTypeClass" PropertySelectionChanged="SetSelectedProperty"></TypeClassDocView>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="content">
+
+    <InputGroup Label="Namespaces">
+        <DropDown T="string" Items="Namespaces" SelectedItemChanged="FilterByNamespace"></DropDown>
+    </InputGroup>
+
+@*     <TypeClassList TypeClasses="@TypeClasses"></TypeClassList>
+ *@
+    <h1>Diagrams.</h1>
+    <div class="h1-seperator"></div>
+
+    <div class="inti-diagrams">
+        @foreach (var tc in TypeClasses)
+        {
+            <div class="inti-card">
+                <TypeClassCardView ViewModel="@tc" HandleCardSelection="@SelectCardType"></TypeClassCardView>
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <InputGroup Label="Naam van het diagram.">
+        <IntiTextBox TValue="string" @bind-Text="CanvasViewModel.DiagramName" OnEnter="CreateDiagram"></IntiTextBox>
+    </InputGroup>
+
+    <InputGroup Label="Diagrammen">
+        <DropDown Items="Diagrams" 
+                  T="DiagramEntity" 
+                  PropertyName="Name" 
+                  SelectedItemChanged="DiagramSelectionChanged" >
+        </DropDown>
+    </InputGroup>
+</div>
+
+<div class="content">
+    <IntiDiagramCanvas ViewModel="CanvasViewModel"
+                       CanvasId="mycanvas">
+    </IntiDiagramCanvas>
+</div>

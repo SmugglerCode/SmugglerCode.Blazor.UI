@@ -1,0 +1,57 @@
+﻿@typeparam T
+
+<!-- LABEL  -->
+<div class="drop-down-container" @onclick="ToggleVisibility">
+    <div class="drop-down-label">
+        @if (SelectedItem != null)
+        {
+            @if (string.IsNullOrWhiteSpace(PropertyName))
+            {
+                @SelectedItem
+            }
+            else
+            {
+                @GetPropertyValue(SelectedItem)
+            }
+        }
+        else
+        {
+            <span style="color:grey">Please select a value ... </span>
+        }
+    </div>
+
+    <div class="drop-down-icon @_icon"></div>
+</div>
+
+<!--  DROP DOWN PART  -->
+@if (showDropDownList)
+{
+    <div class="drop-down-content">
+        <div class="drop-down-window">
+
+            @if (ShowFilter)
+            {
+                <div>
+                    <IntiTextBox TValue="string" OnEnter="Filter" @bind-Text="_filterText"></IntiTextBox>
+                </div>
+            }
+
+            @if (_filteredItems != null)
+            {
+                @foreach (var item in _filteredItems)
+                {
+                    <div class="drop-down-item" @onclick="() => SelectItem(item)">
+                        @if (string.IsNullOrWhiteSpace(PropertyName))
+                        {
+                            @item
+                        }
+                        else
+                        {
+                            @GetPropertyValue(item)
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}

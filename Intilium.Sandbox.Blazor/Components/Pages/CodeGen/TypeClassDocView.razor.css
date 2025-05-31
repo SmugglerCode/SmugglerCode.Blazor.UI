@@ -1,0 +1,15 @@
+﻿.prop-grid {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    margin-bottom:2rem;
+}
+
+.method-grid {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr;
+    margin-bottom: 2rem;
+}
+
+div {
+    font-size: 1rem;
+}

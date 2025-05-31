@@ -1,0 +1,10 @@
+﻿.hamburger-menu {
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 2px;
+    margin-left: 1rem;
+}
+
+.hamburger-menu:hover {
+    cursor: pointer;
+}

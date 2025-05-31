@@ -1,0 +1,57 @@
+﻿@if (TypeClass != null) 
+{
+    <h2>@TypeClass.Name</h2>
+
+    <div class="grid-auto-1fr">
+
+        <div>Namespace </div>
+        <div>@TypeClass.Namespace</div>
+
+        <div>Beschrijving</div>
+        <div>@TypeClass.Description</div>
+    </div>
+
+    <h3>Properties</h3>
+    <div class="prop-grid">
+
+        <div class="table-header right-seperator right-padding-md">Naam</div>
+        <div class="table-header right-seperator right-padding-md left-padding-xsm">Type</div>
+        <div class="table-header right-seperator left-padding-xsm">Beschrijving</div>
+
+        @foreach (var prop in TypeClass.Properties)
+        {
+            <div class="table-cell right-seperator left-padding-xsm right-padding-md" @onclick="() => PropertySelected(prop)">@prop.Name</div>
+            <div class="table-cell right-seperator left-padding-xsm right-padding-md">@prop.TypeName</div>
+            <div class="table-cell right-seperator left-padding-xsm">@prop.Description</div>
+        }
+    </div>
+
+    <h3>Methods</h3>
+
+    <div class="method-grid">
+
+        <div class="table-header right-seperator right-padding-md">Naam</div>
+        <div class="table-header right-seperator right-padding-md left-padding-xsm">Return type</div>
+        <div class="table-header right-seperator right-padding-md left-padding-xsm">Parameters</div>
+        <div class="table-header left-padding-xsm">Beschrijving</div>
+
+        @foreach (var meth in TypeClass.Methods)
+        {
+            <div class="table-cell right-seperator right-padding-md">@meth.MethodName</div>
+            <div class="table-cell right-seperator left-padding-xsm right-padding-md">@meth.ReturnType</div>
+            <div class="table-cell params grid-auto-1fr right-seperator left-padding-xsm right-padding-md">
+                @foreach (var param in meth.Parameters) 
+                {
+                    <span>@param.Type</span>
+                    <span>@param.Name</span>
+                }
+            </div>
+            <div class="table-cell left-padding-xsm">@meth.Description</div>
+        }
+
+    </div>
+}
+else 
+{
+    <div>Please select or create a new class type.</div>
+}

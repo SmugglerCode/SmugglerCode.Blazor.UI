@@ -1,0 +1,102 @@
+﻿@rendermode InteractiveServer
+
+@page "/Documents"
+
+@using Intilium.Sandbox.Blazor.Database.Doc
+@using Intilium.Sandbox.Blazor.Components.Pages.Documentation.CodeBlock
+
+<IntiPopup Label="Editor" IsVisible="ShowEditor">
+    @if (_activePagePart != null) 
+    {
+    }
+</IntiPopup>
+
+<IntiPopup Label="Categorie editor" IsVisible="ShowCategoryEditor">
+    <DocumentCategoryEditor></DocumentCategoryEditor>
+</IntiPopup>
+
+<div class="main-layout-documentation-page">
+
+    <!--  DOCUMENTS MENU  -->
+    <div class="menu-documentation-page">
+
+        <div class="sub-layout">
+            <IntiTreeView SelectionChanged="SelectDocument" T="DocumentCategoryEntity" Items="_documents.Items"></IntiTreeView>
+        </div>
+
+    </div>
+
+    <!--  CONTENT  -->
+    <div class="sub-layout">
+
+        <h3>DocumentationPage</h3>
+
+        <div class="main-layout">
+
+            <!--  GRID MANUPILATION  -->
+            <div>
+
+                <IntiButton>Add header</IntiButton>
+
+                <!--  NUMBER OF COLUMNS TO ADD -->
+                <IntiTextBox Label="Aantal kolommen" 
+                             TValue="int"
+                             @bind-Text="numberOfColumns">
+                </IntiTextBox>
+                
+                <div class="button-group">
+                    <!--  CREATE ROW  -->
+                    <IntiButton OnClick="CreateRow">Create row</IntiButton>
+
+                    <!--  EDIT CATEGORIES  -->
+                    <IntiButton OnClick="ShowCategoryEditorHandler">Edit categories</IntiButton>
+                </div>
+
+
+                @if (_activePagePart != null)
+                {
+                    <InputGroup Label="Overspanning kolommen">
+                        <IntiTextBox TValue="short"
+                                     @bind-Text="_activePagePart.ColumnSpan"></IntiTextBox>
+                    </InputGroup>
+
+                    <InputGroup Label="Overspanning rijen">
+                        <IntiTextBox TValue="short"
+                                     @bind-Text="_activePagePart.RowSpan"></IntiTextBox>
+                    </InputGroup>
+                    
+                    <InputGroup Label="Breedte">
+                         <IntiTextBox TValue="string" 
+                                      @bind-Text="_activePagePart.Width"></IntiTextBox>
+                    </InputGroup>
+
+                    <div class="button-group">
+                        <IntiButton Label="Edit" OnClick="() => { ShowEditor = !ShowEditor; }"></IntiButton>
+                        <IntiButton Label="Opslaan" OnClick="SaveDocumentPage"></IntiButton>
+                    </div>
+                }
+
+            </div>
+
+            <div>
+                @if (DocumentPage != null)
+                {
+                    <div class="document-page-row" style="@CreateGridTemplateColumns()">
+
+                        @foreach (var pagePart in DocumentPage.PageParts)
+                        {
+                            <div class="document-row-column @(pagePart.IsActive ? "active" : "")" style="@pagePart.CssStyle">
+
+                                <!--  MAKE COLUMN ACTIVE  -->
+                                <div class="column-options" @onclick="() => SetActivePagePart(pagePart)"></div>
+
+                                <!--  DELETE COLUMN  -->
+                                <div class="remove-column" @onclick="() => RemovePagePart(pagePart)"></div>
+                        </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

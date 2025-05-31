@@ -1,0 +1,16 @@
+﻿@if (IsVisible)
+{
+    <div class="inti-popup-container" style="z-index: 100">
+        <div class="inti-popup-header">
+            <div class="header-bar">
+                <div>@Label</div>
+                <div class="inti-popup-close-icon inti-checked-radio-button" @onclick="CloseWindow"></div>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="inti-popup-content">
+            @ChildContent
+        </div>
+    </div>
+}

@@ -1,0 +1,68 @@
+﻿.document-page-row {
+    display: grid;
+    grid-column-gap:1em;
+    grid-row-gap:1em;
+    margin-bottom:1em;
+}
+
+.document-row-column {
+    position: relative;
+}
+
+
+.column-options {
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 20px;
+    height: 20px;
+    background: steelblue;
+    border: solid 1px steelblue;
+}
+
+.document-row-column {
+    border: dotted 1px red;
+}
+
+.document-row-column.active-column {
+    border: solid 1px steelblue;
+}
+
+.remove-column {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border: solid 1px red;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-gap: 40px;
+}
+
+.main-layout-documentation-page {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-gap: 1rem;
+}
+
+.menu-documentation-page {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.sub-layout {
+    background: white;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}

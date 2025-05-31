@@ -1,0 +1,36 @@
+﻿  @inherits LayoutComponentBase
+
+<!--  LOGO PANEL  -->
+<div class="fixed-panel logo-panel">
+    <div class="logo-block">
+        CodeGen
+    </div>
+</div>
+
+<!--  TOP MENU  -->
+<div class="fixed-panel top-menu-panel">
+</div>
+editor
+<!--  SIDE MENU  -->
+<div class="fixed-panel side-menu-panel">
+    <!--  SIDEBAR  -->
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+</div>
+
+<!--  BODY  -->
+<div class="fixed-panel main-body-panel">
+    @Body
+</div>
+
+@if (!_prerendering)
+{
+    <IntiSnackbar></IntiSnackbar>
+}
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>

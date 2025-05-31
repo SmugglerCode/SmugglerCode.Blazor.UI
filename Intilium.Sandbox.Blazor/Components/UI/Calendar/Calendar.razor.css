@@ -1,0 +1,62 @@
+﻿/*  GENERAL SETTINGS  */
+.inti-calendar {
+    width: 17.5rem;
+}
+
+/*  YEAR MONTH AND NAVIGATION  */
+.inti-month-year {
+    display: grid;
+    grid-template-columns: 2rem 1fr 2rem;
+    background-color: #de4981;
+    margin-bottom: 1rem;
+}
+
+.inti-month-year > i {
+    color: white;
+    font-size: 1.3rem;
+    padding: 0.4rem 0.3rem;
+    box-sizing: border-box;
+}
+
+.inti-month-year > i:hover {
+    cursor: pointer;
+}
+
+.calendar-month-year {
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 0.5rem 0 0.5rem 0;
+    color: white;
+}
+
+/*  WEEK DAYS  */
+.calendar-header > div {
+    display: inline-block;
+    padding: 0 0 0.5rem 0;
+    color: #9b4daa;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 2.5rem;
+    text-align: center;
+}
+
+/*  DAY CELLS */
+.calendar-days > div {
+    display: grid;
+    grid-template-columns: 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem;
+}
+
+.calendar-days > div > div{
+    display: inline-block;
+    padding: 1rem 0 1rem 0;
+    font-size: 0.8rem;
+    color: #555;
+    width: 2.5rem;
+    text-align:center;
+}
+
+.calendar-cell.calendar-today {
+    color:red;
+}
+

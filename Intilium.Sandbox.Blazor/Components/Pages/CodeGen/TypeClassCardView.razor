@@ -1,0 +1,32 @@
+﻿<div class="inti-card" style="@ViewModel.CardStyle">
+    <div class="header" @onclick="HeaderClicked">@ViewModel.TypeClass.Name</div>
+
+    <div class="inti-card-content">
+
+        <!--  PROPERTIES  -->
+        @if (ViewModel.TypeClass.HasProperties)
+        {
+            <div class="grid-auto-1fr">
+                @foreach (var prop in ViewModel.TypeClass.Properties)
+                {
+                    <div>@prop.Name</div>
+                    <div>@prop.TypeName</div>
+                }
+            </div>
+        }
+
+        <hr />
+
+        <!--  METHODS  -->
+        @if (ViewModel.TypeClass.HasMethods)
+        {
+            <div class="grid-auto-1fr">
+                @foreach (var meth in ViewModel.TypeClass.Methods)
+                {
+                    <div>@meth.ReturnType</div>
+                    <div>@meth.MethodName (...)</div>
+                }
+            </div>
+        }
+    </div>
+</div>
