@@ -1,4 +1,4 @@
-# CodeShepherd.Blazor.UI
+# SmugglerCode.Blazor.UI
 
 **A reusable Blazor UI component library.**
 
@@ -23,7 +23,7 @@ A flexible button component with multiple styles and support for child content.
 #### Usage example
 
 ```razor
-@using CodeShepherd.Blazor.UI.Components.Buttons.Button
+@using SmugglerCode.Blazor.UI.Components.Buttons
 
 <Button Label="Click me" Type="ButtonType.Primary" OnClick="@OnButtonClicked" />
 
