@@ -21,9 +21,21 @@ public partial class Button : ComponentBase
         _ => "sc-button-primary"
     };
 
+    private string CssDisabled => IsDisabled ? "sc-button-disabled" : string.Empty;
+
     #endregion
 
     #region parameters
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the button is visible.
+    /// When set to <c>false</c>, the button will not be rendered in the UI.
+    /// </summary>
+    [Parameter]
+    public bool IsVisible { get; set; } = true;
+
+    [Parameter]
+    public bool IsDisabled { get; set; } = false;
 
     /// <summary>
     /// The text label displayed on the button.
@@ -60,6 +72,9 @@ public partial class Button : ComponentBase
     /// </summary>
     private async Task HandleClick()
     {
+        if (IsDisabled)
+            return;
+
         await OnClick.InvokeAsync();
     }
 
@@ -69,6 +84,9 @@ public partial class Button : ComponentBase
     /// <param name="e">Keyboard event arguments.</param>
     private async Task HandleKeyUp(KeyboardEventArgs e)
     {
+        if (IsDisabled)
+            return;
+
         if (e.Key is "Enter" or " ")
         {
             await HandleClick();

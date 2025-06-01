@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmugglerCode.Blazor.UI", "SmugglerCode.Blazor.UI\SmugglerCode.Blazor.UI.csproj", "{7E3E03F5-4CED-8BD2-490A-FB5418B438F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmugglerCode.Blazor.UI.Sandbox", "SmugglerCode.Blazor.UI.Sandbox\SmugglerCode.Blazor.UI.Sandbox.csproj", "{AFF24AB3-F724-24D5-B680-668CD6029864}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7E3E03F5-4CED-8BD2-490A-FB5418B438F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E3E03F5-4CED-8BD2-490A-FB5418B438F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E3E03F5-4CED-8BD2-490A-FB5418B438F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF24AB3-F724-24D5-B680-668CD6029864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF24AB3-F724-24D5-B680-668CD6029864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF24AB3-F724-24D5-B680-668CD6029864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF24AB3-F724-24D5-B680-668CD6029864}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

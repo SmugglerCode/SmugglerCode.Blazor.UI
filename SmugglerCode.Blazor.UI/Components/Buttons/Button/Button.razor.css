@@ -1,7 +1,7 @@
 ﻿.sc-button {
     background-color: #de4981;
     color: white;
-    padding: .5rem;
+    padding: .5rem 2rem;
     box-sizing: border-box;
     border-radius: 10px;
     display: inline-block;
@@ -9,12 +9,30 @@
     text-align: center;
     font-size: 1rem;
     height: 2.5rem;
+    user-select: none;
+    -webkit-user-select: none; /* for Safari */
+    -moz-user-select: none; /* for Firefox */
+    -ms-user-select: none; /* for older versions of IE */
 }
 
 .sc-button-alert {
     background-color: red;
 }
 
+.sc-button-alert:hover {
+    background-color:darkred;
+}
+
+.sc-button-primary:hover {
+    background-color: #346f9f;
+}
+
 .sc-button-primary {
     background-color: steelblue;
+}
+
+.sc-button-disabled, .sc-button-disabled:hover {
+    background-color: lightgray;
+    color: dimgray;
+    cursor: inherit;
 }

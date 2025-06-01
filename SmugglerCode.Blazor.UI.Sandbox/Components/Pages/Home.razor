@@ -1,0 +1,19 @@
+﻿@page "/"
+
+<style>
+    .label {
+        color: steelblue;
+        font-weight: bolder;
+    }
+    
+</style>
+
+<div style="padding:20px;">
+    <span class="label">Is interactive: </span>@RendererInfo.IsInteractive <br />
+    <span class="label">Render mode: </span>@RendererInfo.Name <br />
+    <span class="label"></span>
+    @AssignedRenderMode<br />
+</div>
+
+<Button Label="Test" IsVisible=_show></Button>
+<Button Label="Toggle visibility" Type="ButtonType.Alert" OnClick="Toggle" IsDisabled="false"></Button>

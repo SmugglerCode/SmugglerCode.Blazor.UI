@@ -1,22 +1,24 @@
 ﻿@namespace SmugglerCode.Blazor.UI.Components.Buttons
 
 <!--
-  Reusable button UI component.
-  Displays either a text label or custom child content.
-  Handles click and keyboard activation (Enter/Space).
+Reusable button UI component.
+Displays either a text label or custom child content.
+Handles click and keyboard activation (Enter/Space).
 -->
-
-<div class="sc-button @CssClass"
-     role="button"
-     tabindex="0"
-     @onclick="HandleClick"
-     @onkeyup=HandleKeyUp>
-    @if (string.IsNullOrWhiteSpace(Label) == false)
-    {
-        @Label
-    }
-    else
-    {
-        @ChildContent
-    }
-</div>
+@if (IsVisible) 
+{
+    <div class="sc-button @CssClass @CssDisabled"
+         role="button"
+         tabindex="0"
+         @onclick="HandleClick"
+         @onkeyup=HandleKeyUp>
+        @if (string.IsNullOrWhiteSpace(Label) == false)
+        {
+            @Label
+        }
+        else
+        {
+            @ChildContent
+        }
+    </div>
+}
