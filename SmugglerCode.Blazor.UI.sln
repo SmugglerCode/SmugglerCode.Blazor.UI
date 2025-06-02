@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmugglerCode.Blazor.UI", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmugglerCode.Blazor.UI.Sandbox", "SmugglerCode.Blazor.UI.Sandbox\SmugglerCode.Blazor.UI.Sandbox.csproj", "{AFF24AB3-F724-24D5-B680-668CD6029864}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmugglerCode.Blazor.UI.Tests", "SmugglerCode.Blazor.UI.Tests\SmugglerCode.Blazor.UI.Tests.csproj", "{50887687-242C-406E-9DA6-914FC917980A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AFF24AB3-F724-24D5-B680-668CD6029864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFF24AB3-F724-24D5-B680-668CD6029864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFF24AB3-F724-24D5-B680-668CD6029864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50887687-242C-406E-9DA6-914FC917980A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50887687-242C-406E-9DA6-914FC917980A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50887687-242C-406E-9DA6-914FC917980A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50887687-242C-406E-9DA6-914FC917980A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
