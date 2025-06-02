@@ -9,7 +9,7 @@
     display: inline-block;
     border: solid 1px #333;
     height: 2.5rem;
-    min-width: 15rem;
+    width: 100%;
     overflow: hidden;
     padding: 0.2rem 1rem;
     box-sizing: border-box;
