@@ -1,6 +1,7 @@
 ﻿using Bunit;
 using Microsoft.AspNetCore.Components;
 using SmugglerCode.Blazor.UI.Components.Buttons;
+using SmugglerCode.Blazor.UI.Components.Common;
 
 namespace SmugglerCode.Blazor.UI.Tests.InputComponents;
 
@@ -78,7 +79,7 @@ public class ButtonTests
         var component = ctx.RenderComponent<Button>(parameters => parameters.Add(b => b.IsDisabled, true));
 
         // assert
-        component.Find("div[role = button].sc-button-primary");
+        component.Find("div[role = button].sc-disabled");
     }
 
     [Fact]
@@ -149,5 +150,20 @@ public class ButtonTests
 
         // Assert
         Assert.Equal("abc", span.TextContent);
+    }
+
+    [Fact]
+    public void Button_Disabled_When_WrappedIn_DisabledScope()
+    {
+        using var ctx = new TestContext();
+
+        var cut = ctx.RenderComponent<DisabledScope>(parameters => parameters
+            .Add(p => p.IsDisabled, true)
+            .AddChildContent<Button>(buttonParams => buttonParams
+                .Add(p => p.Label, "Click me")
+            ));
+
+        var button = cut.Find("div[role = 'button']");
+        Assert.Contains("sc-disabled", button.ClassList);
     }
 }

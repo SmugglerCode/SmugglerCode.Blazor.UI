@@ -1,0 +1,15 @@
+﻿@typeparam TValue
+@namespace SmugglerCode.Blazor.UI.Components.Inputs
+@inherits SmugglerCode.Blazor.UI.Components.Common.DisabledScopeBase
+
+@if (IsVisible)
+{
+    <div class="sc-textbox-container @CssDisabled">
+        <input type="Text"
+               value="@BindConverter.FormatValue(Text)"
+               @ref="_inputRef"
+               @onkeypress="OnKeyPressed"
+               @oninput="OnTextChanged"
+               disabled="@IsEffectivelyDisabled" />
+    </div>
+}

@@ -10,6 +10,7 @@
     font-size: 1rem;
     height: 2.5rem;
     user-select: none;
+    vertical-align: top;
     -webkit-user-select: none; /* for Safari */
     -moz-user-select: none; /* for Firefox */
     -ms-user-select: none; /* for older versions of IE */
@@ -31,7 +32,8 @@
     background-color: steelblue;
 }
 
-.sc-button-disabled, .sc-button-disabled:hover {
+div[role = 'button'].sc-disabled, 
+.sc-disabled[role = 'button']:hover {
     background-color: lightgray;
     color: dimgray;
     cursor: inherit;

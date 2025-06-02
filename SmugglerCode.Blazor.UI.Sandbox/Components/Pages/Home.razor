@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using SmugglerCode.Blazor.UI.Components.Common
 
 <style>
     .label {
@@ -11,9 +12,16 @@
 <div style="padding:20px;">
     <span class="label">Is interactive: </span>@RendererInfo.IsInteractive <br />
     <span class="label">Render mode: </span>@RendererInfo.Name <br />
-    <span class="label"></span>
-    @AssignedRenderMode<br />
+    <span class="label">Assigned render mode: </span>@AssignedRenderMode <br />
 </div>
 
+<TextBox @bind-Text="_customerName" IsDisabled="_show"></TextBox>
 <Button Label="Test" IsVisible=_show></Button>
 <Button Label="Toggle visibility" Type="ButtonType.Alert" OnClick="Toggle" IsDisabled="false"></Button>
+<hr />
+<div>Customer name: @_customerName</div>
+
+<DisabledScope IsDisabled="_show">
+    <Button Label="I'm disabled"></Button>
+    <Button>so am I</Button>
+</DisabledScope>

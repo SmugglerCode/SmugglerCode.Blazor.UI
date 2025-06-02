@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using SmugglerCode.Blazor.UI.Components.Common;
 
 namespace SmugglerCode.Blazor.UI.Components.Buttons;
 
@@ -7,7 +8,7 @@ namespace SmugglerCode.Blazor.UI.Components.Buttons;
 /// A reusable button component that supports styling via <see cref="ButtonType"/>
 /// and handles click events.
 /// </summary>
-public partial class Button : ComponentBase
+public partial class Button : DisabledScopeBase
 {
     #region private fields
 
@@ -21,7 +22,19 @@ public partial class Button : ComponentBase
         _ => "sc-button-primary"
     };
 
-    private string CssDisabled => IsDisabled ? "sc-button-disabled" : string.Empty;
+    #endregion
+
+    #region IsDisabled
+
+    [Parameter]
+    public bool? IsDisabled { get; set; }
+
+    [CascadingParameter(Name = "IsDisabled")]
+    public bool? CascadedIsDisabled { get; set; }
+
+    public bool IsEffectivelyDisabled => ComputeEffectiveDisabled(IsDisabled, CascadedIsDisabled);
+
+    private string CssDisabled => IsEffectivelyDisabled ? "sc-disabled" : string.Empty;
 
     #endregion
 
@@ -33,9 +46,6 @@ public partial class Button : ComponentBase
     /// </summary>
     [Parameter]
     public bool IsVisible { get; set; } = true;
-
-    [Parameter]
-    public bool IsDisabled { get; set; } = false;
 
     /// <summary>
     /// The text label displayed on the button.
@@ -72,7 +82,7 @@ public partial class Button : ComponentBase
     /// </summary>
     private async Task HandleClick()
     {
-        if (IsDisabled)
+        if (IsEffectivelyDisabled)
             return;
 
         await OnClick.InvokeAsync();
@@ -84,7 +94,7 @@ public partial class Button : ComponentBase
     /// <param name="e">Keyboard event arguments.</param>
     private async Task HandleKeyUp(KeyboardEventArgs e)
     {
-        if (IsDisabled)
+        if (IsEffectivelyDisabled)
             return;
 
         if (e.Key is "Enter" or " ")

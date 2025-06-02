@@ -1,0 +1,31 @@
+﻿input {
+    font-size: 1.3rem;
+    width: 100%;
+    border: 0;
+    outline: 0;
+}
+
+.sc-textbox-container {
+    display: inline-block;
+    border: solid 1px #333;
+    height: 2.5rem;
+    min-width: 15rem;
+    overflow: hidden;
+    padding: 0.2rem 1rem;
+    box-sizing: border-box;
+}
+
+.sc-textbox-container.sc-disabled
+
+input:focus {
+    outline: none !important;
+}
+
+div.sc-textbox-container.sc-disabled input
+{
+    color: lightgray;
+}
+
+div.sc-textbox-container.sc-disabled {
+    border: solid 1px lightgray;
+}
