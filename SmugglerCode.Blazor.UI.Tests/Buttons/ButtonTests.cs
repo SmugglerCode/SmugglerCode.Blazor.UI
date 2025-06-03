@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using SmugglerCode.Blazor.UI.Components.Buttons;
 using SmugglerCode.Blazor.UI.Components.Common;
 
-namespace SmugglerCode.Blazor.UI.Tests.InputComponents;
+namespace SmugglerCode.Blazor.UI.Tests.Buttons;
 
 /// <summary>
 /// Unit tests for the button component.
@@ -125,7 +125,7 @@ public class ButtonTests
         using var ctx = new TestContext();
 
         // Act
-        var component = ctx.RenderComponent<SmugglerCode.Blazor.UI.Components.Buttons.Button>(parameters => parameters
+        var component = ctx.RenderComponent<Button>(parameters => parameters
             .Add(p => p.Label, "Click me")
         );
 
@@ -142,7 +142,7 @@ public class ButtonTests
         using var ctx = new TestContext();
 
         // Act
-        var component = ctx.RenderComponent<SmugglerCode.Blazor.UI.Components.Buttons.Button>(parameters => parameters
+        var component = ctx.RenderComponent<Button>(parameters => parameters
             .AddChildContent("<span>abc</span>")
         );
 

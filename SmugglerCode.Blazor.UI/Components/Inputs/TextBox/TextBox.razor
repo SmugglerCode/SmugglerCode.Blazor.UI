@@ -4,7 +4,7 @@
 
 @if (IsVisible)
 {
-    <div class="sc-textbox-container @CssDisabled">
+    <div class="sc-textbox-container @CssDisabled" role="textbox">
         <input type="Text"
                value="@BindConverter.FormatValue(Text)"
                @ref="_inputRef"

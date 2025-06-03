@@ -6,6 +6,6 @@
 /// </summary>
 public enum ButtonType
 {
-    Primary,
-    Alert
+    Primary = 0,
+    Alert = 1
 }
