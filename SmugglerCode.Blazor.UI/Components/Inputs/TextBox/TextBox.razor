@@ -4,8 +4,8 @@
 
 @if (IsVisible)
 {
-    <div class="sc-textbox-container @CssDisabled" role="textbox">
-        <input type="Text"
+    <div class="sc-textbox-container @CssClasses" role="textbox" @onclick="SetFocusToInput">
+        <input type="@InputType"
                value="@BindConverter.FormatValue(Text)"
                @ref="_inputRef"
                @onkeypress="OnKeyPressed"

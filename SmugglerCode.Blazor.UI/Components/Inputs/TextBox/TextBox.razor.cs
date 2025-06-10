@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using SmugglerCode.Blazor.UI.Components.Common;
+using System.Text;
 
 namespace SmugglerCode.Blazor.UI.Components.Inputs;
 
@@ -28,6 +29,9 @@ public partial class TextBox<TValue> : DisabledScopeBase
     [Parameter]
     public bool? IsDisabled { get; set; }
 
+    [CascadingParameter(Name = "IsDynamicSizing")]
+    public bool IsDynamicSizing { get; set; }
+
     /// <summary>
     /// Indicates whether this component is disabled via a parent cascading value.
     /// </summary>
@@ -42,11 +46,18 @@ public partial class TextBox<TValue> : DisabledScopeBase
     /// <summary>
     /// Returns the CSS class for disabled state styling.
     /// </summary>
-    private string CssDisabled => IsEffectivelyDisabled ? "sc-disabled" : string.Empty;
+    private string CssClasses => CreateCssClasses();
 
     #endregion
 
     #region parameters
+
+    /// <summary>
+    /// Defines whether the component is a text field, password field, .... This input type corresponds to the type of input in HTML.
+    /// Default: text.
+    /// </summary>
+    [Parameter]
+    public string InputType { get; set; } = "text";
 
     /// <summary>
     /// Determines whether the component is visible in the DOM.
@@ -88,6 +99,18 @@ public partial class TextBox<TValue> : DisabledScopeBase
 
     #region private methods
 
+    private string CreateCssClasses()
+    {
+        var sb = new StringBuilder();
+
+        if (IsEffectivelyDisabled)
+            sb.Append("sc-disabled ");
+
+        sb.Append(IsDynamicSizing ? "dynamic-size " : "fixed-size ");
+
+        return sb.ToString();
+    }
+
     /// <summary>
     /// Handles the Enter key press and triggers the OnEnter callback if not disabled.
     /// </summary>
@@ -126,6 +149,11 @@ public partial class TextBox<TValue> : DisabledScopeBase
             // Optional: log or handle conversion errors (e.g., invalid input).
             // TODO: to be implemented.
         }
+    }
+
+    private async Task SetFocusToInput()
+    {
+        await _inputRef.FocusAsync();
     }
 
     #endregion

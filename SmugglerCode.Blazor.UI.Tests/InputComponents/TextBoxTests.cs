@@ -79,6 +79,28 @@ public class TextBoxTests
     }
 
     [Fact]
+    public void FixedSizingTest()
+    {
+        using var context = new TestContext();
+
+        var component = context.RenderComponent<TextBox<string>>();
+
+        component.Find("div.fixed-size");
+    }
+
+    [Fact]
+    public void DynamicSizingTest()
+    {
+        using var context = new TestContext();
+
+        var component = context.RenderComponent<TextBox<string>>(ps => ps
+            .Add(t => t.IsDynamicSizing, true)
+        );
+
+        component.Find("div.dynamic-size");
+    }
+
+    [Fact]
     public void TwoWayBinding_Works_BothDirections()
     {
         using var context = new TestContext();

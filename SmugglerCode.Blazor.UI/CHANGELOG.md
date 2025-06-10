@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a changelog](https://keepachangelog.com/en/1.0.0),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.4] - 2025-06-10
+
+### Fixed
+
+- Background color of the input container has been set to white as well
+
+### Added
+
+- Possibility to switch between fixed sizing and dynamic sizing, dynamic sizing is based on the font-size of the first parent which defines a concrete value.
+- A DynamicCssScope component which allows us to set the scope for dynamic of fixed sizing of a component.
 ## [1.0.3] - 2025-06-02
 
 ### Fixed

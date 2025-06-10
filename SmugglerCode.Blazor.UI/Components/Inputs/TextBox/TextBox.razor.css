@@ -1,29 +1,48 @@
-﻿input {
-    font-size: 1.3rem;
+﻿div.sc-textbox-container input {
     width: 100%;
     border: 0;
     outline: 0;
 }
 
-.sc-textbox-container {
+div.sc-textbox-container {
+    background: white;
     display: inline-block;
     border: solid 1px #333;
-    height: 2.5rem;
     width: 100%;
     overflow: hidden;
-    padding: 0.2rem 1rem;
     box-sizing: border-box;
+    cursor: text;
 }
 
-.sc-textbox-container.sc-disabled
+div.sc-textbox-container.fixed-size > input {
+    font-size: 20px;
+}
 
-input:focus {
+div.sc-textbox-container.dynamic-size > input {
+    font-size: 1.3em;
+}
+
+    div.sc-textbox-container.fixed-size {
+        height: 40px;
+        padding: 3px 8px;
+        font-size: 20px;
+    }
+
+    div.sc-textbox-container.dynamic-size {
+        height: 2.5em;
+        padding: 0.2em 0.5em;
+        font-size: 1.3em;
+    }
+
+.sc-textbox-container.sc-disabled input:focus {
     outline: none !important;
 }
 
 div.sc-textbox-container.sc-disabled input
 {
     color: lightgray;
+    background: white;
+
 }
 
 div.sc-textbox-container.sc-disabled {

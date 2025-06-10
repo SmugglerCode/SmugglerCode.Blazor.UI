@@ -1,0 +1,40 @@
+﻿@page "/security/login"
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using SmugglerCode.Blazor.UI.Sandbox.Components.Logic
+@using System.Security.Claims
+Inloggen.
+
+<TextBox TValue="string" OnEnter="LoginUser" @bind-Text="password" InputType="password"></TextBox>
+
+<Button OnClick="LoginUser">Login</Button>
+
+<div>@originalHash</div>
+<div>@pwdHash</div>
+
+@success
+
+@code 
+{
+    private string password = string.Empty;
+    private bool success = false;
+    private string originalHash = "pZuaGn5TXbtXcMP0vXVCqza4LJIa4ZNBc9vzAZxMv5A=";
+    private string pwdHash = string.Empty;
+
+    private void LoginUser()
+    {
+        pwdHash = password.ToSHA256();
+
+        success = originalHash == pwdHash;
+
+        var claims = new List<Claim>()
+        {
+            new Claim(ClaimTypes.Name, "Tommy"),
+            new Claim(ClaimTypes.Country, "Belgium")
+        };
+
+        var identity = new ClaimsIdentity(claims);
+
+        var principal = new ClaimsPrincipal(identity);
+    }
+}

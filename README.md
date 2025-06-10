@@ -58,6 +58,7 @@ A generic input component for text-based user input with type safety and event h
 - IsDisabled and inherited cascading IsDisabled support
 - IsVisible flag to toggle component visibility
 - Applies disabled attribute and styles when disabled
+- Switching between dynamic or fixed sizing for the text box
 
 #### Usage example
 
@@ -80,3 +81,22 @@ A generic input component for text-based user input with type safety and event h
     }
 }
 ```
+
+---
+
+#### Usage example dynamic sizing
+
+```razor
+
+@using SmugglerCode.Blazor.UI.Components.Common
+
+<DynamicCssScope IsDynamicSize="_isDynamicSize">
+
+        <TextBox @bind-Text="_customerName"></TextBox>
+        <TextBox @bind-Text="_customerLastName"></TextBox>
+        ...
+
+</DynamicCssScope>
+
+```
+

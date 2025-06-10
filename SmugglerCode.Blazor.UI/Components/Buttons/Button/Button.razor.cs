@@ -97,7 +97,7 @@ public partial class Button : DisabledScopeBase
         if (IsEffectivelyDisabled)
             return;
 
-        if (e.Key is "Enter" or " ")
+        if (e.Key is "Enter")
         {
             await HandleClick();
         }
