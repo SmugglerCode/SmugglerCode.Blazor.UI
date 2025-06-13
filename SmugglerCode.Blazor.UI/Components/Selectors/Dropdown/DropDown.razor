@@ -1,0 +1,96 @@
+﻿@using SmugglerCode.Blazor.UI.Components.Common
+@using SmugglerCode.Blazor.UI.Components.Inputs
+
+@inherits DisabledScopeBase
+@typeparam T
+
+<!-- LABEL  -->
+<div class="drop-down-root" @ref="_wrapper"> 
+    <div class="drop-down-container @CssClasses"
+         tabindex="0"
+         role="combobox" 
+         @onclick="() => ToggleVisibilityHandler(null)"
+         @onclick:stopPropagation
+         @onkeyup="KeyEventHandler"
+         @onkeyup:stopPropagation
+         >
+        <div class="drop-down-label">
+            @if (SelectedItem != null)
+            {
+                @if (string.IsNullOrWhiteSpace(PropertyName))
+                {
+                    @SelectedItem
+                }
+                else
+                {
+                    @GetPropertyValue(SelectedItem)
+                }
+            }
+            else
+            {
+                <span class="drop-down-label">Please select a value ... </span>
+            }
+        </div>
+
+        <div class="drop-down-icon @IconClass"></div>
+    </div>
+
+    <!--  DROP DOWN PART  -->
+    @if (_showDropDownList)
+    {
+        <div class="drop-down-content">
+            <div class="drop-down-window">
+
+                @if (ShowFilter)
+                {
+                    <div class="item-value">
+                        <TextBox TValue="string" OnEnter="Filter" TextChanged="Filter" @ref="_searchFilter"></TextBox>
+                    </div>
+                }
+
+                @if (_filteredItems != null && _filteredItems.Count > 0)
+                {
+                    @for (var i = 0; i < _filteredItems.Count; i++)
+                    {
+                        var item = _filteredItems[i];
+                        var index = i;
+
+                        if (i > _itemsRef.Count - 1)
+                        {
+                            var s = "an error occured";
+                        }
+
+                        <div class="drop-down-item"
+                        tabindex="0"
+                        @ref="_itemsRef[index]"
+                        @onkeydown="e => DropDownItemKeyHandler(e, item, index)"
+                        @onmousedown="() => SelectItemHandler(item)" 
+                        @onmousedown:stopPropagation>
+
+                            @if (ItemTemplate == null)
+                            { 
+                                @if (string.IsNullOrWhiteSpace(PropertyName))
+                                {
+                                    @item
+                                }
+                                else
+                                {
+                                    @GetPropertyValue(item)
+                                }
+                            }
+                            else
+                            {
+                                @ItemTemplate(item);
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="no-items-text">@NoItems</div>    
+                }
+
+            </div>
+        </div>
+    }
+</div>

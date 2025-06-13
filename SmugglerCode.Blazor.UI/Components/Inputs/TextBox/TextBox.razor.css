@@ -48,3 +48,7 @@ div.sc-textbox-container.sc-disabled input
 div.sc-textbox-container.sc-disabled {
     border: solid 1px lightgray;
 }
+
+div.sc-textbox-container:focus-within {
+    border: solid 1px pink;
+}

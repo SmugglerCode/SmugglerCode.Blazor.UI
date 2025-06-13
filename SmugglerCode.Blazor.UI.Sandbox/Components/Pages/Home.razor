@@ -3,6 +3,7 @@
 
 @using Microsoft.AspNetCore.Authorization
 @using SmugglerCode.Blazor.UI.Components.Common
+@using SmugglerCode.Blazor.UI.Components.Selectors.Dropdown
 
 <style>
     .label {
@@ -17,20 +18,35 @@
 <Button OnClick="Increment">+</Button>
 <Button OnClick="Decrement">-</Button>
 
-
-<div style="padding:20px;">
-    <span class="label">Is interactive: </span>@RendererInfo.IsInteractive <br />
-    <span class="label">Render mode: </span>@RendererInfo.Name <br />
-    <span class="label">Assigned render mode: </span>@AssignedRenderMode <br />
-</div>
-
 <DynamicCssScope IsDynamicSize="_isDynamicSize">
 
-        <TextBox @bind-Text="_customerName" IsDisabled="_show"></TextBox>
 
         <Button Label="Test" OnClick="ToggleDynamicSize" IsVisible=_show></Button>
-        <Button Label="Toggle visibility" Type="ButtonType.Alert" OnClick="Toggle" IsDisabled="false"></Button>
+        <Button Label="Toggle disabled" Type="ButtonType.Alert" OnClick="Toggle" IsDisabled="false"></Button>
 
-</DynamicCssScope>
+        <DisabledScope IsDisabled="_show">
+
+            <TextBox @bind-Text="_customerName" IsDisabled="_show"></TextBox>
+
+            <!--  FIRST DROPDOWN  -->
+            <DropDown T="string" Items="_persons" ShowFilter="true"></DropDown>
+
+            <DropDown T="Person" Items="_personInstances">
+                <ItemTemplate Context="p">
+                    <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem">
+                        <img width="70" src="@p.ImageSource" />
+                        <div>
+                            <div style="color:deeppink">@p.Name @p.LastName</div>
+                            <div>@p.Street</div>
+                            <div>@p.City</div>
+                        </div>
+
+                    </div>
+                </ItemTemplate>
+            </DropDown>
+
+        </DisabledScope>
+
+    </DynamicCssScope>
 
 </div>

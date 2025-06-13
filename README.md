@@ -100,3 +100,44 @@ A generic input component for text-based user input with type safety and event h
 
 ```
 
+---
+
+## DropDown<T> component
+
+A fully-featured, keyboard-accessible dropdown / combobox for Blazor that supports
+filtering, templating and dynamic (cascading) disabled state.
+
+### Key features
+* Generic `<DropDown<T>>` works with any type – simple strings or full POCOs
+* Optional client-side filtering textbox (`ShowFilter`)
+* Property binding via `PropertyName` when `T` is a complex object
+* Custom rendering with `ItemTemplate`
+* Dynamic sizing and inherited disabled scope
+* Full keyboard support and screen-reader friendly ARIA roles
+* Zero-JS setup apart from a small helper script
+
+Import only once in app.razor:
+<link href="/_content/SmugglerCode.Blazor.UI/smugglercode-font.css" rel="stylesheet" />
+
+### Usage
+
+```razor
+
+@page "/example"
+
+<DropDown TValue="Country"
+          Items="Countries"
+          SelectedItem="@selected"
+          SelectedItemChanged="OnCountryChanged"
+          PropertyName="Name"
+          ShowFilter />
+
+@code {
+    private List<Country> Countries = CountryService.All;
+    private Country? selected;
+
+    private void OnCountryChanged(Country? value) => selected = value;
+}
+```
+
+---

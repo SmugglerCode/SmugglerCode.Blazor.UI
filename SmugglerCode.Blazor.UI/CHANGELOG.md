@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a changelog](https://keepachangelog.com/en/1.0.0),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.5] - 2025-06-13
+
+### Added
+- Initial release of **DropDown<T>** component:
+- Generic typing, property binding (`PropertyName`)
+- Built-in filter textbox via `ShowFilter`
+- Cascading disabled scope and dynamic sizing support
+- Keyboard navigation (Ctrl + Z, arrows, Enter)
+- Custom `ItemTemplate` rendering
+- Accessibility: `role="combobox"` and proper focus management
+- JS-interop helper (`smugglercodedropdownhelper.js`) registers/unregisters per instance.
+
 ## [1.0.4] - 2025-06-10
 
 ### Fixed

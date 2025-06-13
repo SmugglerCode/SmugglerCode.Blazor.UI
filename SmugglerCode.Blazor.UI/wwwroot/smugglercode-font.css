@@ -1,0 +1,191 @@
+@font-face {
+    font-family: 'IntiliumFont';
+    src: url('/_content/SmugglerCode.Blazor.UI/fonts/IntiliumFont.eot');
+    src: url('/_content/SmugglerCode.Blazor.UI/fonts/IntiliumFont.eot?#iefix') format('embedded-opentype'),
+         url('/_content/SmugglerCode.Blazor.UI/fonts/IntiliumFont.ttf') format('truetype'),
+         url('/_content/SmugglerCode.Blazor.UI/fonts/IntiliumFont.woff') format('woff'),
+         url('/_content/SmugglerCode.Blazor.UI/fonts/IntiliumFont.svg#IntiliumFont') format('svg');
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="inti-"], [class*=" inti-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'IntiliumFont' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.inti-checked-checkbox-fill:before {
+  content: "\e900"
+}
+.inti-checked-checkbox:before {
+  content: "\e901";
+}
+.inti-checked-radio-button:before {
+  content: "\e902";
+}
+.inti-hamburger-menu:before {
+  content: "\e903";
+}
+.inti-triangle-down:before {
+  content: "\e904";
+}
+.inti-triangle-left:before {
+  content: "\e905";
+}
+.inti-triangle-right:before {
+  content: "\e906";
+}
+.inti-triangle-up:before {
+  content: "\e907";
+}
+.inti-unchecked-checkbox:before {
+  content: "\e908";
+}
+.inti-unchecked-radio-button:before {
+  content: "\e909";
+}
+.inti-home:before {
+  content: "\e90a";
+}
+.inti-home2:before {
+  content: "\e90b";
+}
+.inti-home3:before {
+  content: "\e90c";
+}
+.inti-newspaper:before {
+  content: "\e90d";
+}
+.inti-pencil:before {
+  content: "\e90e";
+}
+.inti-pencil2:before {
+  content: "\e90f";
+}
+.inti-image:before {
+  content: "\e910";
+}
+.inti-images:before {
+  content: "\e911";
+}
+.inti-camera:before {
+  content: "\e912";
+}
+.inti-headphones:before {
+  content: "\e913";
+}
+.inti-connection:before {
+  content: "\e91b";
+}
+.inti-podcast:before {
+  content: "\e91c";
+}
+.inti-feed:before {
+  content: "\e91d";
+}
+.inti-mic:before {
+  content: "\e91e";
+}
+.inti-book:before {
+  content: "\e91f";
+}
+.inti-books:before {
+  content: "\e920";
+}
+.inti-file-text:before {
+  content: "\e922";
+}
+.inti-profile:before {
+  content: "\e923";
+}
+.inti-printer:before {
+  content: "\e954";
+}
+.inti-keyboard:before {
+  content: "\e955";
+}
+.inti-display:before {
+  content: "\e956";
+}
+.inti-laptop:before {
+  content: "\e957";
+}
+.inti-mobile:before {
+  content: "\e958";
+}
+.inti-mobile2:before {
+  content: "\e959";
+}
+.inti-tablet:before {
+  content: "\e95a";
+}
+.inti-tv:before {
+  content: "\e95b";
+}
+.inti-drawer:before {
+  content: "\e95c";
+}
+.inti-drawer2:before {
+  content: "\e95d";
+}
+.inti-box-add:before {
+  content: "\e95e";
+}
+.inti-box-remove:before {
+  content: "\e95f";
+}
+.inti-download:before {
+  content: "\e960";
+}
+.inti-upload:before {
+  content: "\e961";
+}
+.inti-floppy-disk:before {
+  content: "\e962";
+}
+.inti-drive:before {
+  content: "\e963";
+}
+.inti-database:before {
+  content: "\e964";
+}
+.inti-undo:before {
+  content: "\e965";
+}
+.inti-redo:before {
+  content: "\e966";
+}
+.inti-undo2:before {
+  content: "\e967";
+}
+.inti-redo2:before {
+  content: "\e968";
+}
+.inti-forward:before {
+  content: "\e969";
+}
+.inti-reply:before {
+  content: "\e96a";
+}
+.inti-bubble:before {
+  content: "\e96b";
+}
+.inti-bin:before {
+  content: "\e9ac";
+}
+.inti-bin2:before {
+  content: "\e9ad";
+}
+.inti-insert-template:before {
+  content: "\ea72";
+}
