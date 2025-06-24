@@ -1,14 +1,16 @@
-﻿.sc-button {
-    background-color: #de4981;
-    color: white;
-    padding: .5rem 2rem;
+﻿.sc-button-container {
+    height: var(--container-height);
+    background-color: var(--button-primary-background-color);
+    color: var(--button-primary-color);
+    padding: var(--button-padding);
     box-sizing: border-box;
-    border-radius: 10px;
+    height: var(--container-height);
+    width: var( --container-width);
     display: inline-block;
     min-width: 8rem;
     text-align: center;
-    font-size: 1rem;
-    height: 2.5rem;
+    font-size: var(--button-font-size);
+    border-radius: var(--button-border-radius);
     user-select: none;
     vertical-align: top;
     -webkit-user-select: none; /* for Safari */

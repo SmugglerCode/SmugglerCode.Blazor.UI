@@ -35,10 +35,18 @@ div.drop-down-container.sc-disabled .drop-down-label {
     color: lightgrey;
 }
 
-.drop-down-icon {
+div.drop-down-container.dynamic-size .drop-down-icon {
     grid-column: 2;
-    font-size: 1em;
-    padding-top: 0.2em;
+    font-size: 7.5em;
+    padding-top: 0.5em;
+}
+
+
+
+div.drop-down-container.fixed-size .drop-down-icon {
+    grid-column: 2;
+    font-size: 12px;
+    padding-top: 8px;
 }
 
 .drop-down-content {

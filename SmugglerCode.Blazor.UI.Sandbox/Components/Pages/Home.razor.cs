@@ -3,18 +3,12 @@
 namespace SmugglerCode.Blazor.UI.Sandbox.Components.Pages;
 public partial class Home : ComponentBase
 {
-    private bool _show = true;
+    private bool _disabled = false;
     private string _customerName = "John Doe";
-
-    private List<string> _persons = ["Tommy Ceusters", "Suzy van der Aa", "Marie Ceusters"];
-    private List<Person> _personInstances = [new Person("Tommy", "Ceusters").AddPhoto("foto1.png").AddAddress("Steenberg 72A", "3460 Bekkevoort"),
-                                             new Person("Suzy", "van der Aa").AddPhoto("foto2.png").AddAddress("Bondgenotenlaan 101", "3000 Leuven")];
-
     private bool _isDynamicSize = false;
+    private int _size = 16;
 
     private string CssStyles => CreateCssStyle();
-
-    private int _size = 16;
 
     private string CreateCssStyle()
     {
@@ -23,7 +17,7 @@ public partial class Home : ComponentBase
 
     private void Toggle()
     {
-        _show = !_show;
+        _disabled = !_disabled;
         StateHasChanged();
     }
 

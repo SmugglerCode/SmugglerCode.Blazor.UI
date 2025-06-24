@@ -3,33 +3,21 @@
 
 @using Microsoft.AspNetCore.Authorization
 @using SmugglerCode.Blazor.UI.Components.Common
-@using SmugglerCode.Blazor.UI.Components.Selectors.Dropdown
-
-<style>
-    .label {
-        color: steelblue;
-        font-weight: bolder;
-    }
-    
-</style>
+@using SmugglerCode.Blazor.UI.Components.Selectors
 
 <div style="@CssStyles">
 
-<Button OnClick="Increment">+</Button>
-<Button OnClick="Decrement">-</Button>
-
 <DynamicCssScope IsDynamicSize="_isDynamicSize">
 
+        <Button Label="@(_disabled ? "Enable": "Disable")" Type="ButtonType.Alert" OnClick="Toggle" IsDisabled="false"></Button>
 
-        <Button Label="Test" OnClick="ToggleDynamicSize" IsVisible=_show></Button>
-        <Button Label="Toggle disabled" Type="ButtonType.Alert" OnClick="Toggle" IsDisabled="false"></Button>
+        <DisabledScope IsDisabled="_disabled">
 
-        <DisabledScope IsDisabled="_show">
+            <TextBox @bind-Text="_customerName"></TextBox>
 
-            <TextBox @bind-Text="_customerName" IsDisabled="_show"></TextBox>
 
             <!--  FIRST DROPDOWN  -->
-            <DropDown T="string" Items="_persons" ShowFilter="true"></DropDown>
+@*             <DropDown T="string" Items="_persons" ShowFilter="true"></DropDown>
 
             <DropDown T="Person" Items="_personInstances">
                 <ItemTemplate Context="p">
@@ -44,7 +32,7 @@
                     </div>
                 </ItemTemplate>
             </DropDown>
-
+ *@
         </DisabledScope>
 
     </DynamicCssScope>

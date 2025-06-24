@@ -46,7 +46,7 @@ A flexible button component with multiple styles, interactivity options, and sup
 
 ---
 
-### TextBox<TValue>
+### TextBox
 
 A generic input component for text-based user input with type safety and event handling.
 
@@ -54,7 +54,6 @@ A generic input component for text-based user input with type safety and event h
 
 - Supports two-way binding via Text and TextChanged
 - Optional OnEnter callback for Enter key handling
-- Converts input values from string to the correct TValue
 - IsDisabled and inherited cascading IsDisabled support
 - IsVisible flag to toggle component visibility
 - Applies disabled attribute and styles when disabled
@@ -65,8 +64,7 @@ A generic input component for text-based user input with type safety and event h
 ```razor
 @using SmugglerCode.Blazor.UI.Components.Inputs
 
-<TextBox TValue="int"
-         Text="@value"
+<TextBox Text="@value"
          TextChanged="@((int? val) => value = val)"
          OnEnter="@OnEnterPressed"
          IsDisabled="false"

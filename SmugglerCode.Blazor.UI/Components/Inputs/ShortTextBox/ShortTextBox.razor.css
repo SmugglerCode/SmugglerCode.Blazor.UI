@@ -1,4 +1,4 @@
-﻿div.sc-textbox-container {
+div.sc-textbox-container {
     padding: var(--container-textbox-padding);
     height: var(--container-height);
     width: var(--container-width);
@@ -6,7 +6,6 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     cursor: text;
-
     border-top: var(--container-border-top);
     border-bottom: var(--container-border-bottom);
     border-left: var(--container-border-left);
@@ -14,22 +13,21 @@
     border-radius: var(--container-border-radius);
 }
 
-div.sc-textbox-container input {
-    width: 100%;
-    border: 0;
-    outline: 0;
-}
+    div.sc-textbox-container input {
+        width: 100%;
+        border: 0;
+        outline: 0;
+    }
 
-div.sc-textbox-container.sc-disabled {
-    border: solid 1px lightgray;
-}
+    div.sc-textbox-container.sc-disabled {
+        border: solid 1px lightgray;
+    }
 
 .sc-textbox-container.sc-disabled input:focus {
     outline: none !important;
 }
 
-div.sc-textbox-container.sc-disabled input
-{
+div.sc-textbox-container.sc-disabled input {
     color: lightgray;
     background: white;
 }

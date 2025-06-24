@@ -12,7 +12,7 @@ public class TextBoxTests
         using var context = new TestContext();
 
         // Act
-        var component = context.RenderComponent<TextBox<string>>();
+        var component = context.RenderComponent<TextBox>();
 
         // assert
         component.Find("div[role = 'textbox']");
@@ -24,7 +24,7 @@ public class TextBoxTests
     {
         using var context = new TestContext();
 
-        var component = context.RenderComponent<TextBox<string>>(ps =>
+        var component = context.RenderComponent<TextBox>(ps =>
             ps.Add(tb => tb.IsDisabled, true)
         );
         var input = component.Find("input");
@@ -40,9 +40,9 @@ public class TextBoxTests
         using var context = new TestContext();
         string? enteredValue = null;
 
-        var component = context.RenderComponent<TextBox<string>>(ps => ps
+        var component = context.RenderComponent<TextBox>(ps => ps
             .Add(p => p.Text, string.Empty)
-            .Add(p => p.OnEnter, (string? v) => enteredValue = v)
+            .Add(p => p.OnEnter, (string v) => enteredValue = v)
         );
 
         var input = component.Find("input");
@@ -62,10 +62,10 @@ public class TextBoxTests
         using var context = new TestContext();
         string? enteredValue = null;
 
-        var component = context.RenderComponent<TextBox<string>>(ps => ps
+        var component = context.RenderComponent<TextBox>(ps => ps
             .Add(p => p.Text, string.Empty)
             .Add(p => p.IsDisabled, true)
-            .Add(p => p.OnEnter, (string? v) => enteredValue = v)
+            .Add(p => p.OnEnter, (string v) => enteredValue = v)
         );
 
         var input = component.Find("input");
@@ -83,7 +83,7 @@ public class TextBoxTests
     {
         using var context = new TestContext();
 
-        var component = context.RenderComponent<TextBox<string>>();
+        var component = context.RenderComponent<TextBox>();
 
         component.Find("div.fixed-size");
     }
@@ -93,7 +93,7 @@ public class TextBoxTests
     {
         using var context = new TestContext();
 
-        var component = context.RenderComponent<TextBox<string>>(ps => ps
+        var component = context.RenderComponent<TextBox>(ps => ps
             .Add(t => t.IsDynamicSizing, true)
         );
 
@@ -107,7 +107,7 @@ public class TextBoxTests
 
         string currentValue = "initial value";
 
-        var component = context.RenderComponent<TextBox<string>>(ps => ps
+        var component = context.RenderComponent<TextBox>(ps => ps
             .Bind(p => p.Text, currentValue, newValue => currentValue = newValue!)
         );
 

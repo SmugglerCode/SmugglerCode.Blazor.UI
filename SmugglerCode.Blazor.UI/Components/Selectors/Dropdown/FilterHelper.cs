@@ -1,4 +1,4 @@
-﻿namespace SmugglerCode.Blazor.UI.Components.Selectors.Dropdown;
+﻿namespace SmugglerCode.Blazor.UI.Components.Selectors;
 
 public static class FilterHelper
 {

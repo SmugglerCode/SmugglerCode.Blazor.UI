@@ -1,0 +1,38 @@
+﻿.sc-light-theme {
+    /* General settings */
+    --primary-color: #333;
+    --focus-color: #38b4d0;
+    --disabled-color: lightgray;
+    /* Text box settings */
+    --textbox-font-size: 16px;
+    --textbox-color: #333;
+    --textbox-color-disabled: lightgray !important;
+    --textbox-outline: none !important;
+    --textbox-outline-focus: none !important;
+    /* GENERAL CONTAINER */
+    --container-border-right: solid 1px var(--primary-color);
+    --container-border-top: solid 1px var(--primary-color);
+    --container-border-left: solid 1px var(--primary-color);
+    --container-border-bottom: solid 1px var(--primary-color);
+    --container-height: 32px;
+    --container-width: 100%;
+    --container-border-radius: 0;
+    --container-padding: 3px 8px;
+    --container-textbox-padding: 5px 8px;
+    /* FOCUSED CONTAINER */
+    --container-border-top-focus: solid 1px var(--focus-color);
+    --container-border-bottom-focus: solid 1px var(--focus-color);
+    --container-border-left-focus: solid 1px var(--focus-color);
+    --container-border-right-focus: solid 1px var(--focus-color);
+    /* DISABLED CONTAINER */
+    --container-border-right-disabled: solid 1px var(--disabled-color);
+    --container-border-top-disabled: solid 1px var(--disabled-color);
+    --container-border-left-disabled: solid 1px var(--disabled-color);
+    --container-border-bottom-disabled: solid 1px var(--disabled-color);
+    /* BUTTON */
+    --button-primary-background-color: #38b4d0;
+    --button-primary-color: white;
+    --button-padding: 6px 10px;
+    --button-font-size: 16px;
+    --button-border-radius: 4px;
+}

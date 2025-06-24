@@ -2,6 +2,8 @@
 @using SmugglerCode.Blazor.UI.Components.Inputs
 
 @inherits DisabledScopeBase
+@namespace SmugglerCode.Blazor.UI.Components.Selectors
+
 @typeparam T
 
 <!-- LABEL  -->
@@ -44,7 +46,7 @@
                 @if (ShowFilter)
                 {
                     <div class="item-value">
-                        <TextBox TValue="string" OnEnter="Filter" TextChanged="Filter" @ref="_searchFilter"></TextBox>
+                        <TextBox OnEnter="Filter" TextChanged="Filter" @ref="_searchFilter"></TextBox>
                     </div>
                 }
 

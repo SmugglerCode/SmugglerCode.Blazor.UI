@@ -1,15 +1,10 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using SmugglerCode.Blazor.UI.Components.Common;
 using System.Text;
 
 namespace SmugglerCode.Blazor.UI.Components.Inputs;
-
-/// <summary>
-/// Generic reusable input textbox component for Blazor.
-/// Supports value binding, enter key handling, visibility control, and inherited disable state.
-/// </summary>
-public partial class TextBox : DisabledScopeBase
+public partial class ShortTextBox : DisabledScopeBase
 {
     #region private fields
 
@@ -68,25 +63,25 @@ public partial class TextBox : DisabledScopeBase
     /// The bound value of the input field.
     /// </summary>
     [Parameter]
-    public string Text { get; set; } = string.Empty;
+    public short Text { get; set; } = 0;
 
     /// <summary>
     /// Callback triggered when the value of the input changes.
     /// </summary>
     [Parameter]
-    public EventCallback<string> TextChanged { get; set; }
+    public EventCallback<short> TextChanged { get; set; }
 
     /// <summary>
     /// Callback triggered when the Enter key is pressed.
     /// </summary>
     [Parameter]
-    public EventCallback<string> OnEnter { get; set; }
+    public EventCallback<short> OnEnter { get; set; }
 
     /// <summary>
     /// Callback triggeren when clicking on the self set icon <see cref="Icon"/>
     /// </summary>
     [Parameter]
-    public EventCallback<string> OnIconPressed { get; set; }
+    public EventCallback<short> OnIconPressed { get; set; }
 
     #endregion
 
@@ -134,7 +129,7 @@ public partial class TextBox : DisabledScopeBase
     /// <param name="e">Change event args containing the new value.</param>
     private async Task OnTextChanged(ChangeEventArgs e)
     {
-        Text = e.Value?.ToString() ?? string.Empty;
+        Text = ParseValue(e.Value);
         await TextChanged.InvokeAsync(Text);
     }
 
@@ -142,8 +137,15 @@ public partial class TextBox : DisabledScopeBase
     {
         if (IsEffectivelyDisabled) return;
 
-        Text = string.Empty;
+        Text = 0;
         await TextChanged.InvokeAsync(Text);
+    }
+
+    private short ParseValue(object? val)
+    {
+        if (val == null) return 0;
+
+        return short.TryParse(val.ToString(), out var value) ? value : (short)0;
     }
 
     private async Task IconPressedEventHandler()

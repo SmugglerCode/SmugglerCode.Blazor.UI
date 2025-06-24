@@ -5,9 +5,14 @@
 @using System.Security.Claims
 Inloggen.
 
-<TextBox TValue="string" OnEnter="LoginUser" @bind-Text="password" InputType="password"></TextBox>
+<div class="grid-1fr-auto">
+    <TextBox OnEnter="LoginUser" @bind-Text="password" Icon="sc-search" OnIconPressed="UpdateText"></TextBox>
+    <Button OnClick="LoginUser">Login</Button>
+    <ShortTextBox @bind-Text="shortValue"></ShortTextBox>
 
-<Button OnClick="LoginUser">Login</Button>
+</div>
+
+<div>Value: @updateText</div>
 
 <div>@originalHash</div>
 <div>@pwdHash</div>
@@ -20,6 +25,13 @@ Inloggen.
     private bool success = false;
     private string originalHash = "pZuaGn5TXbtXcMP0vXVCqza4LJIa4ZNBc9vzAZxMv5A=";
     private string pwdHash = string.Empty;
+    private string updateText = "Not yes set";
+    private short shortValue = 10;
+
+    private void UpdateText(string text)
+    {
+        updateText = text;    
+    }
 
     private void LoginUser()
     {

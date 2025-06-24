@@ -5,7 +5,7 @@ using SmugglerCode.Blazor.UI.Components.Common;
 using SmugglerCode.Blazor.UI.Components.Inputs;
 using System.Text;
 
-namespace SmugglerCode.Blazor.UI.Components.Selectors.Dropdown;
+namespace SmugglerCode.Blazor.UI.Components.Selectors;
 
 public partial class DropDown<T> : DisabledScopeBase, IAsyncDisposable
 {
@@ -14,7 +14,7 @@ public partial class DropDown<T> : DisabledScopeBase, IAsyncDisposable
     /// <summary>
     /// Reference to the searchFilter text box.
     /// </summary>
-    private TextBox<string> _searchFilter = null!;
+    private TextBox _searchFilter = null!;
 
     private bool _showDropDownList = false;
     private DotNetObjectReference<DropDown<T>>? _selfRef;
