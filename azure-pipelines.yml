@@ -16,6 +16,11 @@ variables:
   packageOutput: '$(Build.ArtifactStagingDirectory)/nuget'
 
 steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '9.0.x'
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
