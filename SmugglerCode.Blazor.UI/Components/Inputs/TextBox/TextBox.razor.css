@@ -2,11 +2,11 @@
     padding: var(--container-textbox-padding);
     height: var(--container-height);
     width: var(--container-width);
+    background-color: var(--textbox-background-color);
     box-sizing: border-box;
     display: grid;
     grid-template-columns: auto 1fr auto;
     cursor: text;
-
     border-top: var(--container-border-top);
     border-bottom: var(--container-border-bottom);
     border-left: var(--container-border-left);

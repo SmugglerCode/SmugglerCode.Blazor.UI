@@ -2,7 +2,7 @@ div.sc-textbox-container {
     padding: var(--container-textbox-padding);
     height: var(--container-height);
     width: var(--container-width);
-    background-color: var(--textbox-background-color);
+    background-color: var(--textbox-background-color); 
     box-sizing: border-box;
     display: grid;
     grid-template-columns: auto 1fr auto;

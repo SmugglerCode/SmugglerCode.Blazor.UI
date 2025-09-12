@@ -1,0 +1,33 @@
+﻿@namespace SmugglerCode.Blazor.UI.Components.Inputs
+
+@inherits SmugglerCode.Blazor.UI.Components.Common.DisabledScopeBase
+
+@if (IsVisible)
+{
+    <div class="sc-textbox-container @CssClasses" role="textbox" @onclick="SetFocusToInput">
+        <input type="number"
+               style="grid-column:2"
+               @bind="Text"
+               @ref="_inputRef"
+               @onkeypress="OnKeyPressed"
+               @oninput="OnTextChanged"
+               disabled="@IsEffectivelyDisabled" />
+
+        <!--  CROSS ICON - RESET FIELD -->
+        <div class="sc-icons">
+            <div class="sc-cross sc-textbox-icon"
+                 @onclick="ClearPressedEventHandler">
+            </div>
+
+            @if (Icon != null)
+            {
+                <div class="@Icon sc-textbox-icon"
+                     style="grid-column: 2;"
+                     @onclick="IconPressedEventHandler">
+                </div>
+            }
+
+
+        </div>
+    </div>
+}

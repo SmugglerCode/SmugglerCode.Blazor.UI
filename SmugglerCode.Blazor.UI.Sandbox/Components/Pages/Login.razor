@@ -9,6 +9,7 @@ Inloggen.
     <TextBox OnEnter="LoginUser" @bind-Text="password" Icon="sc-search" OnIconPressed="UpdateText"></TextBox>
     <Button OnClick="LoginUser">Login</Button>
     <ShortTextBox @bind-Text="shortValue"></ShortTextBox>
+    <IntTextBox @bind-Text="intValue"></IntTextBox>
 
 </div>
 
@@ -21,6 +22,7 @@ Inloggen.
 
 @code 
 {
+    private int intValue = 200;
     private string password = string.Empty;
     private bool success = false;
     private string originalHash = "pZuaGn5TXbtXcMP0vXVCqza4LJIa4ZNBc9vzAZxMv5A=";
