@@ -21,6 +21,9 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '9.0.x'
+
+- script: dotnet --info
+  displayName: 'Show dotnet info'
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
