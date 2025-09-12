@@ -6,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+	<ItemGroup>
+	<Content Include="_Imports.razor" />
+  </ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\..\SmugglerCode.Blazor.UI\SmugglerCode.Blazor.UI\SmugglerCode.Blazor.UI.csproj" />
   </ItemGroup>
