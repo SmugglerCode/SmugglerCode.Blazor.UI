@@ -33,3 +33,16 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- script: dotnet pack --configuration $(buildConfiguration) `
+    --output $(packageOutput) `
+    /p:PackageVersion=1.0.$(Build.BuildId)
+  displayName: 'Create NuGet package'
+
+# Publish naar nuget.org
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(packageOutput)/*.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'NuGet.org'
