@@ -90,8 +90,8 @@ A generic input component for text-based user input with type safety and event h
 
 <DynamicCssScope IsDynamicSize="_isDynamicSize">
 
-        <TextBox @bind-value="_customerName"></TextBox>
-        <TextBox @bind-value="_customerLastName"></TextBox>
+        <TextBox @bind-Value="_customerName"></TextBox>
+        <TextBox @bind-Value="_customerLastName"></TextBox>
         ...
 
 </DynamicCssScope>
