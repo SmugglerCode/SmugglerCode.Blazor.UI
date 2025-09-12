@@ -5,7 +5,7 @@
     --disabled-color: lightgray;
     /* Text box settings */
     --textbox-background-color: white;
-    --textbox-font-size: 16px;
+.0    --textbox-font-size: 16px;
     --textbox-color: #333;
     --textbox-color-disabled: lightgray !important;
     --textbox-outline: none !important;
