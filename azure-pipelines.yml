@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: SmugglerCode_SelfHosted
+  name: SmugglerCode_SelfHosted
 
 variables:
   solution: '**/*.sln'
