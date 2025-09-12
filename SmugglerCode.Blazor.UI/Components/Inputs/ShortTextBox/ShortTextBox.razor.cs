@@ -63,13 +63,13 @@ public partial class ShortTextBox : DisabledScopeBase
     /// The bound value of the input field.
     /// </summary>
     [Parameter]
-    public short Text { get; set; } = 0;
+    public short Value { get; set; } = 0;
 
     /// <summary>
     /// Callback triggered when the value of the input changes.
     /// </summary>
     [Parameter]
-    public EventCallback<short> TextChanged { get; set; }
+    public EventCallback<short> ValueChanged { get; set; }
 
     /// <summary>
     /// Callback triggered when the Enter key is pressed.
@@ -119,7 +119,7 @@ public partial class ShortTextBox : DisabledScopeBase
     {
         if (!IsEffectivelyDisabled && e.Key == "Enter")
         {
-            await OnEnter.InvokeAsync(Text);
+            await OnEnter.InvokeAsync(Value);
         }
     }
 
@@ -129,16 +129,16 @@ public partial class ShortTextBox : DisabledScopeBase
     /// <param name="e">Change event args containing the new value.</param>
     private async Task OnTextChanged(ChangeEventArgs e)
     {
-        Text = ParseValue(e.Value);
-        await TextChanged.InvokeAsync(Text);
+        Value = ParseValue(e.Value);
+        await ValueChanged.InvokeAsync(Value);
     }
 
     private async Task ClearPressedEventHandler()
     {
         if (IsEffectivelyDisabled) return;
 
-        Text = 0;
-        await TextChanged.InvokeAsync(Text);
+        Value = 0;
+        await ValueChanged.InvokeAsync(Value);
     }
 
     private short ParseValue(object? val)
@@ -152,7 +152,7 @@ public partial class ShortTextBox : DisabledScopeBase
     {
         if (IsEffectivelyDisabled) return;
 
-        await OnIconPressed.InvokeAsync(Text);
+        await OnIconPressed.InvokeAsync(Value);
     }
 
     private async Task SetFocusToInput()

@@ -8,9 +8,9 @@
         <input type="number"
                style="grid-column:2"
                @bind="Value"
+               @bind:event="oninput"
                @ref="_inputRef"
                @onkeypress="OnKeyPressed"
-               @oninput="OnTextChanged"
                disabled="@IsEffectivelyDisabled" />
 
         <!--  CROSS ICON - RESET FIELD -->
