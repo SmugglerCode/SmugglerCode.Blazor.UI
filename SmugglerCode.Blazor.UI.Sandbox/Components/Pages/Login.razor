@@ -6,10 +6,10 @@
 Inloggen.
 
 <div class="grid-1fr-auto">
-    <TextBox OnEnter="LoginUser" @bind-Text="password" Icon="sc-search" OnIconPressed="UpdateText"></TextBox>
+    <TextBox OnEnter="LoginUser" @bind-Value="password" Icon="sc-search" OnIconPressed="UpdateText"></TextBox>
     <Button OnClick="LoginUser">Login</Button>
-    <ShortTextBox @bind-Text="shortValue"></ShortTextBox>
-    <IntTextBox @bind-Text="intValue"></IntTextBox>
+    <ShortTextBox @bind-Value="shortValue"></ShortTextBox>
+    <IntTextBox @bind-Value="intValue"></IntTextBox>
 
 </div>
 

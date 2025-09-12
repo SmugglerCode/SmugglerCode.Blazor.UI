@@ -13,26 +13,8 @@
 
         <DisabledScope IsDisabled="_disabled">
 
-            <TextBox @bind-Text="_customerName"></TextBox>
-
-
-            <!--  FIRST DROPDOWN  -->
-@*             <DropDown T="string" Items="_persons" ShowFilter="true"></DropDown>
-
-            <DropDown T="Person" Items="_personInstances">
-                <ItemTemplate Context="p">
-                    <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem">
-                        <img width="70" src="@p.ImageSource" />
-                        <div>
-                            <div style="color:deeppink">@p.Name @p.LastName</div>
-                            <div>@p.Street</div>
-                            <div>@p.City</div>
-                        </div>
-
-                    </div>
-                </ItemTemplate>
-            </DropDown>
- *@
+            <TextBox @bind-Value="_customerName"></TextBox>
+ 
         </DisabledScope>
 
     </DynamicCssScope>

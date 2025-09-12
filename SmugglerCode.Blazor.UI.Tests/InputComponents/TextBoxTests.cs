@@ -41,7 +41,7 @@ public class TextBoxTests
         string? enteredValue = null;
 
         var component = context.RenderComponent<TextBox>(ps => ps
-            .Add(p => p.Text, string.Empty)
+            .Add(p => p.Value, string.Empty)
             .Add(p => p.OnEnter, (string v) => enteredValue = v)
         );
 
@@ -63,7 +63,7 @@ public class TextBoxTests
         string? enteredValue = null;
 
         var component = context.RenderComponent<TextBox>(ps => ps
-            .Add(p => p.Text, string.Empty)
+            .Add(p => p.Value, string.Empty)
             .Add(p => p.IsDisabled, true)
             .Add(p => p.OnEnter, (string v) => enteredValue = v)
         );
@@ -108,7 +108,7 @@ public class TextBoxTests
         string currentValue = "initial value";
 
         var component = context.RenderComponent<TextBox>(ps => ps
-            .Bind(p => p.Text, currentValue, newValue => currentValue = newValue!)
+            .Bind(p => p.Value, currentValue, newValue => currentValue = newValue!)
         );
 
         // Act

@@ -68,13 +68,13 @@ public partial class TextBox : DisabledScopeBase
     /// The bound value of the input field.
     /// </summary>
     [Parameter]
-    public string Text { get; set; } = string.Empty;
+    public string Value { get; set; } = string.Empty;
 
     /// <summary>
     /// Callback triggered when the value of the input changes.
     /// </summary>
     [Parameter]
-    public EventCallback<string> TextChanged { get; set; }
+    public EventCallback<string> ValueChanged { get; set; }
 
     /// <summary>
     /// Callback triggered when the Enter key is pressed.
@@ -124,7 +124,7 @@ public partial class TextBox : DisabledScopeBase
     {
         if (!IsEffectivelyDisabled && e.Key == "Enter")
         {
-            await OnEnter.InvokeAsync(Text);
+            await OnEnter.InvokeAsync(Value);
         }
     }
 
@@ -134,23 +134,23 @@ public partial class TextBox : DisabledScopeBase
     /// <param name="e">Change event args containing the new value.</param>
     private async Task OnTextChanged(ChangeEventArgs e)
     {
-        Text = e.Value?.ToString() ?? string.Empty;
-        await TextChanged.InvokeAsync(Text);
+        Value = e.Value?.ToString() ?? string.Empty;
+        await ValueChanged.InvokeAsync(Value);
     }
 
     private async Task ClearPressedEventHandler()
     {
         if (IsEffectivelyDisabled) return;
 
-        Text = string.Empty;
-        await TextChanged.InvokeAsync(Text);
+        Value = string.Empty;
+        await ValueChanged.InvokeAsync(Value);
     }
 
     private async Task IconPressedEventHandler()
     {
         if (IsEffectivelyDisabled) return;
 
-        await OnIconPressed.InvokeAsync(Text);
+        await OnIconPressed.InvokeAsync(Value);
     }
 
     private async Task SetFocusToInput()
