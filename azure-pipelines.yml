@@ -62,4 +62,3 @@ steps:
       --api-key $(nuget_api_key)
       --source https://api.nuget.org/v3/index.json
       --skip-duplicate
-      --verbosity detailed
