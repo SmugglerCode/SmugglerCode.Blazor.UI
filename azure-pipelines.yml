@@ -49,8 +49,8 @@ steps:
   displayName: 'dotnet pack'
   inputs:
     command: pack
-    packagesToPack: SmugglerCode.Blazor.UI/SmugglerCode.Blazor.UI.csproj
-    packDirectory: '$(Build.ArtifactStagingDirectory)/SmugglerCode.Blazor.UI'
+    packagesToPack: SmugglerCode.Blazor.UI\SmugglerCode.Blazor.UI.csproj
+    packDirectory: '$(Build.ArtifactStagingDirectory)\SmugglerCode.Blazor.UI'
 
 - task: DotNetCoreCLI@2
   displayName: 'Push to NuGet.org'
@@ -58,7 +58,7 @@ steps:
     command: custom
     custom: nuget
     arguments: >
-      push $(Build.ArtifactStagingDirectory)/SmugglerCode.Blazor.UI/*.nupkg
+      push $(Build.ArtifactStagingDirectory)\SmugglerCode.Blazor.UI\*.nupkg
       --api-key $(nuget_api_key)
       --source https://api.nuget.org/v3/index.json
       --skip-duplicate
