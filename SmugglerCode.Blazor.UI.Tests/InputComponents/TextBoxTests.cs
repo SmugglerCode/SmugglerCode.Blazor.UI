@@ -116,6 +116,7 @@ public class TextBoxTests
         Assert.Equal("initial value", input.GetAttribute("value"));
 
         input.Input("Hello");
+        currentValue = input.GetAttribute("value") ?? "error";
 
         // Assert
         Assert.Equal("Hello", currentValue);
