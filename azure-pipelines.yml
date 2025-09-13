@@ -52,11 +52,14 @@ steps:
     packagesToPack: SmugglerCode.Blazor.UI/SmugglerCode.Blazor.UI.csproj
     packDirectory: '$(Build.ArtifactStagingDirectory)/SmugglerCode.Blazor.UI'
 
-# Publish the packed NuGet package (.nupkg) to Azure Artifacts feed.
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet push'
+  displayName: 'Push to NuGet.org'
   inputs:
-    command: push
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/SmugglerCode.Blazor.UI/*.nupkg'
-    nuGetFeedType: external
-    publishFeedCredentials: 'NuGet.org' 
+    command: custom
+    custom: nuget
+    arguments: >
+      push $(Build.ArtifactStagingDirectory)/SmugglerCode.Blazor.UI/*.nupkg
+      --api-key $(nuget_api_key)
+      --source https://api.nuget.org/v3/index.json
+      --skip-duplicate
+      --verbosity detailed
