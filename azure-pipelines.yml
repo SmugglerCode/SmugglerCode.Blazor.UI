@@ -44,15 +44,21 @@ steps:
     projects: '**/*Tests.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
-- script: dotnet pack --configuration $(buildConfiguration) `
-    --output $(packageOutput) `
-    /p:PackageVersion=1.0.$(Build.BuildId)
-  displayName: 'Create NuGet package'
-
-# Publish naar nuget.org
-- task: NuGetCommand@2
+# Create nuget package of the Blazor UI project 
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
   inputs:
-    command: 'push'
-    packagesToPush: '$(packageOutput)/*.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'NuGet.org'
+    command: pack
+    packagesToPack: SmugglerCode.Blazor.UI/SmugglerCode.Blazor.UI.csproj
+    packDirectory: '$(Build.ArtifactStagingDirectory)/SmugglerCode.Blazor.UI'
+    versioningScheme: byEnvVar
+    versionEnvVar: 'PACKAGE_VERSION'
+
+# Publish the packed NuGet package (.nupkg) to Azure Artifacts feed.
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet push'
+  inputs:
+    command: push
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/SmugglerCode.Blazor.UI/*.nupkg'
+    nuGetFeedType: external
+    publishFeedCredentials: 'NuGet.org' 
